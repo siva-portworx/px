@@ -36,7 +36,7 @@ func PxErrorMessagef(err error, format string, args ...string) error {
 
 // PrintPxErrorMessagef prints the Portworx error message to Stderr
 func PrintPxErrorMessagef(err error, format string, args ...string) {
-	Eprintf("%v\n", PxErrorMessagef(err, fmt.Sprintf(format, args)))
+	Eprintf("%v\n", PxErrorMessagef(err, format, args...))
 }
 
 // PxError extracts and returns the message found in the gRPC error status
