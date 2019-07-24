@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/portworx/px.svg?branch=master)](https://travis-ci.org/portworx/px)
 
-# Overview
+# Overview:
 `px` is a client side application which communicates with Portworx, Kubernetes,
 and other services to provide users with an integrated tool.
 
