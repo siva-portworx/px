@@ -70,6 +70,7 @@ func testDeleteAll(t *testing.T, td *testData) {
 }
 
 func getKeyValue(s string) (string, string) {
+
 	x := strings.Split(s, ":")
 	x[0] = strings.Trim(x[0], " ")
 	x[1] = strings.Trim(x[1], " ")
@@ -83,6 +84,8 @@ func verifyKeyValue(
 	expectedKey string,
 	expectedValue string,
 ) {
+	fmt.Println("key ", key)
+	fmt.Println("expectedKey", expectedKey)
 	assert.Equal(t, key, expectedKey, "key not correct")
 	assert.Equal(t, value, expectedValue, "value not correct")
 }
@@ -97,6 +100,7 @@ func verifyVolumeDescription(
 	if d[0] == "" {
 		d = d[1:]
 	}
+	fmt.Println("D --------->", d)
 	index := 0
 	k, v := getKeyValue(d[index])
 	vInfo := test.PxTestVolumeInfo(t, v)
@@ -165,6 +169,22 @@ func verifyVolumeDescription(
 	index++
 	k, v = getKeyValue(d[index])
 	verifyKeyValue(t, k, v, "Replication Status", "Detached")
+	index++
+	k, v = getKeyValue(d[index])
+	verifyKeyValue(t, k, v, "Ownership", "")
+	index++
+	k, v = getKeyValue(d[index])
+	verifyKeyValue(t, k, v, "Groups", "")
+	fmt.Println("index ---->", index)
+	fmt.Println("len ---->", len(d))
+	fmt.Println("22 --> ", d[22])
+	fmt.Println("23 --->", d[23])
+	fmt.Println("24 --->", d[24])
+	index++
+	fmt.Println("Sivakumar1", d[index], index)
+	k, v = getKeyValue(d[index])
+	fmt.Println("Sivakumar2")
+	verifyKeyValue(t, k, v, "group1", "Read")
 }
 
 // Takes a list of volumes and returns a array of string, one volume description per string

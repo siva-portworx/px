@@ -187,14 +187,14 @@ func (p *VolumeDescribeFormatter) addVolumeAccessInfo(
 	if len(groups) != 0 {
 		t.AddLine("  Groups:")
 		for key, value := range groups {
-			t.AddLine("  ", key, value)
+			t.AddLine(fmt.Sprintf("    %s:", key), value)
 		}
 	}
 
 	if len(collaborators) != 0 {
 		t.AddLine("  Collaborators:")
 		for key, value := range collaborators {
-			t.AddLine("  ", key, value)
+			t.AddLine(fmt.Sprintf("    %s:", key), value)
 		}
 	}
 }

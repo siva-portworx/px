@@ -98,7 +98,7 @@ func ExecuteCli(cli string) ([]string, []string, error) {
 // Takes a volume name and size. Returns the created volume id.
 // For some reason our test container only recoganizes id and not name for some calls.
 func PxTestCreateVolume(t *testing.T, volName string, size uint64) {
-	cli := fmt.Sprintf("px create volume %s --size %s", volName, strconv.FormatUint(size, 10))
+	cli := fmt.Sprintf("px create volume %s --size %s --groups group1:r --collaborators user1:r", volName, strconv.FormatUint(size, 10))
 	lines, _, err := ExecuteCli(cli)
 	assert.NoError(t, err)
 

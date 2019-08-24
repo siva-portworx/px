@@ -44,6 +44,6 @@ else
 	result=$?
 fi
 
-stopdocker pxutsource
-stopdocker pxuttarget
+#stopdocker pxutsource
+#stopdocker pxuttarget
 exit $result
